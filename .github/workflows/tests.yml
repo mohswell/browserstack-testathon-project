@@ -1,9 +1,13 @@
 # This job is to test different maven profiles in sdk branch against full commit-id provided
 # This workflow targets Playwright execution
 
-name: NodeJS SDK Test workflow on workflow_dispatch
+name: E2E Playwright Tests
 
 on:
+  pull_request:
+    branches: ["master", "main"]
+  push:
+    branches: ["master", "main"]
   workflow_dispatch:
     inputs:
       commit_sha:
