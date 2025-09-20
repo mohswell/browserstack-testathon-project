@@ -1,7 +1,7 @@
 // tests/auth.spec.js
 const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../../pages/login-page');
-const { users } = require('../../data/auth/users');
+const { LoginPage } = require('../../../pages/login-page');
+const { users } = require('../../../data/auth/users');
 
 test.describe('Authentication Flows', () => {
   test('Login with demo user and logout', async ({ page }) => {
