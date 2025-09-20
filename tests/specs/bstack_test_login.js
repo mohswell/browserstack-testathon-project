@@ -22,7 +22,8 @@ test.describe('Authentication Flows', () => {
     await loginPage.login(users.imageNotLoadingUser.username, users.imageNotLoadingUser.password);
 
     // Check product images fail gracefully
-    await expect(page.getByRole('img', { name: 'iPhone 12' })).toBeVisible();
+    await expect(page.getByRole('img', { name: 'iPhone 12' }).nth(0)).toBeVisible();
+
 
     await loginPage.logout();
   });
@@ -33,7 +34,7 @@ test.describe('Authentication Flows', () => {
     await loginPage.login(users.existingOrdersUser.username, users.existingOrdersUser.password);
 
     await page.getByRole('link', { name: 'Orders' }).click();
-    await expect(page.getByText(/Delivered 2 November/)).toBeVisible();
+    await expect(page.getByText(/Delivered 2 November/).nth(0)).toBeVisible();
 
     await loginPage.logout();
   });
@@ -44,7 +45,8 @@ test.describe('Authentication Flows', () => {
     await loginPage.login(users.favUser.username, users.favUser.password);
 
     await page.getByRole('link', { name: 'Favourites' }).click();
-    await expect(page.getByText(/iPhone 12 Pro/)).toBeVisible();
+    await expect(page.getByText('iPhone 12 Pro', { exact: true })).toBeVisible();
+
 
     await loginPage.logout();
   });
