@@ -1,7 +1,8 @@
 // This is a sample config for what users might be running locally
 const config = {
-  testDir: './tests',
-  testMatch: '**/bstack_test*.js',
+  testDir: './tests/specs',
+  // Only match test files starting with `bstack_` and ending with `.js` or `.ts`
+  testMatch: 'bstack_*.@(js|ts)',
 
   /* Maximum time one test can run for. */
   timeout: 90 * 1000,
